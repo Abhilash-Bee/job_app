@@ -20,4 +20,5 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jobs/', include('app.urls')),
+    path('email/', include('subscribe.urls')),
 ]

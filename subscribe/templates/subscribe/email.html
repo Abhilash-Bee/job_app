@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Email
+{% endblock title %}
+
+{% block body %}
+<section>
+    <div class="container">
+        {% if submitted_form %}
+            <center>
+                <br>
+                <h2>Email Submitted Successfully</h2>
+                <br>
+                <p>{{ submitted_form.email }}</p>
+            </center>
+        {% else %}
+            <form class='email-form' method='post'>
+                {% csrf_token %}
+                {{ form }}
+                <button class="email-submit">Submit</button>
+            </form>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock body %}
