@@ -15,12 +15,6 @@
                 <p>{{ submitted_form.email }}</p>
             </center>
         {% else %}
-            {% if error %}
-                <center>
-                    <br>
-                    <h2>{{ error }}</h2>
-                </center>
-            {% endif %}
             <form class='email-form' method='post'>
                 {% csrf_token %}
                 {{ form }}

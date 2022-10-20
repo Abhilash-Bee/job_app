@@ -12,7 +12,7 @@ class Location(models.Model):
     zip = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.state
+        return self.city
 
 
 class JobPost(models.Model):

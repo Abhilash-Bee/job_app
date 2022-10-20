@@ -11,3 +11,6 @@ class Subscribe(models.Model):
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200, unique=True)
     option = models.CharField(max_length=2, default='M', choices=SUBSCRIBE_OPTION)
+
+    def __str__(self) -> str:
+        return self.email
