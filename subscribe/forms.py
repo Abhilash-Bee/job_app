@@ -10,3 +10,16 @@ class SubscribeForm(forms.ModelForm):
             'last_name': 'Enter Last Name:',
             'email': 'Enter Email:'
         }
+        error_messages = {
+            'email': {
+                'ValidationError': 'Email already exists.',
+            }
+        }
+    
+    def clean_email(self):
+        data = self.cleaned_data['first_name']
+        emails = [em.email for em in Subscribe.objects.all()]
+        print(emails)
+        if data in emails:
+            raise forms.ValidationError("Email already exists")
+        return data            
